@@ -13,15 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L03_Schaltjahrrechner_Minil
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M04_Schleifen_Enums", "Schleifen_Enums\M04_Schleifen_Enums.csproj", "{3F68280E-6979-40D8-B1DA-0DC6A2EB78F5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L04_Taschenrechner", "Taschenrechner\L04_Taschenrechner.csproj", "{714E1F62-C778-43E0-965B-E7A02F112794}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L04f_Taschenrechner", "Taschenrechner\L04f_Taschenrechner.csproj", "{714E1F62-C778-43E0-965B-E7A02F112794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funktionen", "Funktionen\Funktionen.csproj", "{A93F6153-38CA-4C60-BE01-8C59958FFA34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M05_Funktionen", "Funktionen\M05_Funktionen.csproj", "{A93F6153-38CA-4C60-BE01-8C59958FFA34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlassenbibliothekBeispiel", "KlassenbibliothekBeispiel\KlassenbibliothekBeispiel.csproj", "{CC02C047-92FF-4636-92F9-D95F7ECE00F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M06f_OOP_Klassenbibliothek", "KlassenbibliothekBeispiel\M06f_OOP_Klassenbibliothek.csproj", "{CC02C047-92FF-4636-92F9-D95F7ECE00F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP", "OOP\OOP.csproj", "{4288FDFA-C03A-42C2-8C39-65AA3A037F51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M06f_OOP", "OOP\M06f_OOP.csproj", "{4288FDFA-C03A-42C2-8C39-65AA3A037F51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fahrzeugpark", "Fahrzeugpark\Fahrzeugpark.csproj", "{3C817DA6-A4B7-402C-8C00-7E45F7E5342A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L06f_Fahrzeugpark", "Fahrzeugpark\L06f_Fahrzeugpark.csproj", "{3C817DA6-A4B7-402C-8C00-7E45F7E5342A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
