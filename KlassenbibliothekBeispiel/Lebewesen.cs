@@ -27,6 +27,7 @@
 
         //Property, welche einen komplexen Datentypen abbildet
         public DateTime Geburtsdatum { get; set; }
+
         //Read-only Property mit Rückbezug auf andere Property
         public int Alter
         {
@@ -46,6 +47,8 @@
             this.Lieblingsnahrung = lieblingsnahrung;
             this.Geburtsdatum = geburtstag;
             this.Größe = größe;
+
+            Lebewesen.AnzahlAllerLebewesen++;
         }
 
         //Es können mehrere Konstruktoren definiert werden, welche unterschiedliche Übergabeparameter haben (Überladung). Ein Konstruktor, der keine
@@ -70,6 +73,19 @@
         }
 
         #endregion
+
+        ~Lebewesen()
+        {
+            Console.WriteLine($"{this.Name} ist gestorben.");
+        }
+
+
+        public static int AnzahlAllerLebewesen { get; set; } = 0;
+
+        public static void ZeigeAnzahlAllerLebewesen()
+        {
+            Console.WriteLine($"Es hat bis jetzt {Lebewesen.AnzahlAllerLebewesen} Lebewesen gegeben.");
+        }
 
     }
 }
