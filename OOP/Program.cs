@@ -28,33 +28,52 @@ namespace OOP
             //lebewesen2.Wachse();
             //Lebewesen kind = lebewesen1.ProduziereNachwuchs("Maria");
 
-            ////Zugriff auf eine Eigenschaft des Geburtsdatums
+            ////Aufruf einer Property eines abhängigen Objekts
             //Console.WriteLine(lebewesen1.Geburtsdatum.Day);
             #endregion
 
-            //Lebewesen lebewesen1;
+            #region Modul 07: Statische Member und GC
 
-            //for (int i = 0; i < 1000; i++)
+            ////Variablendklaration
+            //Lebewesen lebewesen;
+
+            ////Schleife zur neubelegung der Variablen (um die GarbageCOllection zu demonstrieren)
+            //for (int i = 0; i < 10; i++)
             //{
-            //    lebewesen1 = new Lebewesen($"Lebewesen Nr. {i}", "", new DateTime(), 0);
+            //    //Neuzuweisung der Varablen (alte Objekte werden derefernziert -> Destruktor wird ausgeführt)
+            //    lebewesen = new Lebewesen();
+            //    lebewesen.Name = $"LW{i}";
             //}
 
+            ////Manueller Aufruf der GC und Programmpause, bis alle Destruktoren beendet wurden
             //GC.Collect();
             //GC.WaitForPendingFinalizers();
 
-            //Lebewesen.ZeigeAnzahlAllerLebewesen();
+            ////Aufruf eines statischen Members der Person-Klasse
+            //Console.WriteLine(Lebewesen.AnzahlLebewesen);
+            //Lebewesen.ZeigeAnzahlLebewesen();
 
-            Lebewesen lebewesen = new Lebewesen("Bello", "Knochen", new DateTime(2020, 3, 15), 50);
+            #endregion
 
-            Mensch mensch = new Mensch("Anna", "Nass", "Schnitzel", new DateTime(2001, 4, 12), 180);
+            #region Modul 08: Vererbung
 
-            Console.WriteLine(mensch.Vorname);
+            //Instanziierung eines Objekts der vererbenden Klasse
+            Lebewesen lebewesen = new Lebewesen("Bello", "Fleisch", new DateTime(2007, 4, 23), 80);
+            //Instanziierung eines Objekts der abgeleiteten Klasse
+            Mensch mensch = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6), 189);
+            
+            //Aufruf von Properties und Methoden, welche aus der Mutterklasse stammen
             Console.WriteLine(mensch.Alter);
+            Console.WriteLine(mensch.Name);
 
-            mensch.Wachse();
+            //Aufruf einer Property der abgeleiteten Klasse
+            Console.WriteLine(mensch.Vorname);
 
-            Console.WriteLine(lebewesen.ToString());
-            Console.WriteLine(mensch.ToString());
+            //Ausgabe der (überschriebenen) ToString()-Methoden
+            Console.WriteLine(lebewesen);
+            Console.WriteLine(mensch);
+
+            #endregion
 
 
         }

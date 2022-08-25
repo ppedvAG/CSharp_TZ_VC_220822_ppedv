@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M06f_OOP", "OOP\M06f_OOP.cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L06f_Fahrzeugpark", "Fahrzeugpark\L06f_Fahrzeugpark.csproj", "{3C817DA6-A4B7-402C-8C00-7E45F7E5342A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WerteUndReferenzen", "WerteUndReferenzen\WerteUndReferenzen.csproj", "{9BF2FF3B-5E69-4318-9ABC-F476E68E6BE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M07_WerteUndReferenzen", "WerteUndReferenzen\M07_WerteUndReferenzen.csproj", "{9BF2FF3B-5E69-4318-9ABC-F476E68E6BE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

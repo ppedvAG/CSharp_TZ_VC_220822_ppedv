@@ -48,23 +48,30 @@
             this.Geburtsdatum = geburtstag;
             this.Größe = größe;
 
-            Lebewesen.AnzahlAllerLebewesen++;
+            Lebewesen.AnzahlLebewesen++;
         }
 
         //Es können mehrere Konstruktoren definiert werden, welche unterschiedliche Übergabeparameter haben (Überladung). Ein Konstruktor, der keine
         //Übergabeparameter hat, wird als Basiskonstruktor bezeichnet
-        //public Lebewesen()
-        //{
+        public Lebewesen()
+        {
 
-        //}
+        }
         #endregion
 
         #region Methoden
 
         //MEMBERMETHODEN sind Funktionen, welche jedes Objekt einer Klasse besitzt und speziell mit diesem Objekt interagiert
+        //VIRTUAL erlaubt erbenden Klassen die Methoden mittels OVERRIDE zu überschreiben
         public virtual void Wachse()
         {
             this.Größe++;
+        }
+
+        //Mittels OVERRIDE können Methoden der Mutterklassen, welche mit VIRTUAL markiert sind, überschrieben werden. Bei Aufruf wird die neue Methode ausgeführt.
+        public override string ToString()
+        {
+            return $"{this.Name} ist {this.Alter} Jahre alt und mag gerne {this.Lieblingsnahrung}.";
         }
 
         public Lebewesen ProduziereNachwuchs(string kindname)
@@ -74,24 +81,32 @@
 
         #endregion
 
+        #region Statische Member
+
+        //STATISCHE Variablen und Methoden hängen an der Klasse selbst und nicht an instanziierten Objekten. Sie existieren demnach unabhängig von der Anzahl
+        ///der Objekte genau einmal. Der Aufruf erfolgt über den Klassenbezeichner.
+        public static int AnzahlLebewesen { get; set; } = 0;
+
+        public static string ZeigeAnzahlLebewesen()
+        {
+            return $"Es gibt {Lebewesen.AnzahlLebewesen} Lebewesen.";
+        }
+
+        #endregion
+
+        #region Destruktor
+
+        //Der DESTRUKTOR wird von der GarbageCollection aufgerufen, wenn das Objekt nicht
+        //mehr referenziert ist. Hier können Aktionen definiert werden,
+        //welche zusätzlich zur 'Zerstörung' erfolgen sollen.
         ~Lebewesen()
         {
             Console.WriteLine($"{this.Name} ist gestorben.");
         }
 
-
-        public static int AnzahlAllerLebewesen { get; set; } = 0;
-
-        public static void ZeigeAnzahlAllerLebewesen()
-        {
-            Console.WriteLine($"Es hat bis jetzt {Lebewesen.AnzahlAllerLebewesen} Lebewesen gegeben.");
-        }
+        #endregion
 
 
-        public override string ToString()
-        {
-            return $"{this.Name} mag gerne {this.Lieblingsnahrung}.";
-        }
 
     }
 }
