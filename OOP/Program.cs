@@ -57,25 +57,42 @@ namespace OOP
 
             #region Modul 08: Vererbung
 
-            //Instanziierung eines Objekts der vererbenden Klasse
-            Lebewesen lebewesen = new Lebewesen("Bello", "Fleisch", new DateTime(2007, 4, 23), 80);
-            //Instanziierung eines Objekts der abgeleiteten Klasse
-            Mensch mensch = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6), 189);
-            
-            //Aufruf von Properties und Methoden, welche aus der Mutterklasse stammen
-            Console.WriteLine(mensch.Alter);
-            Console.WriteLine(mensch.Name);
+            ////Instanziierung eines Objekts der vererbenden Klasse
+            //Lebewesen lebewesen = new Lebewesen("Bello", "Fleisch", new DateTime(2007, 4, 23), 80);
+            ////Instanziierung eines Objekts der abgeleiteten Klasse
+            //Mensch mensch = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6), 189);
 
-            //Aufruf einer Property der abgeleiteten Klasse
-            Console.WriteLine(mensch.Vorname);
+            ////Aufruf von Properties und Methoden, welche aus der Mutterklasse stammen
+            //Console.WriteLine(mensch.Alter);
+            //Console.WriteLine(mensch.Name);
 
-            //Ausgabe der (überschriebenen) ToString()-Methoden
-            Console.WriteLine(lebewesen);
-            Console.WriteLine(mensch);
+            ////Aufruf einer Property der abgeleiteten Klasse
+            //Console.WriteLine(mensch.Vorname);
+
+            ////Ausgabe der (überschriebenen) ToString()-Methoden
+            //Console.WriteLine(lebewesen);
+            //Console.WriteLine(mensch);
 
             #endregion
 
+            Lebewesen lebewesen;
 
+            Mensch mensch = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6), 189);
+
+            lebewesen = mensch;
+
+            Console.WriteLine(mensch.Vorname);
+
+            lebewesen.Wachse();
+
+            ÄndereName(mensch, "Rainer");
+
+
+        }
+
+        public static void ÄndereName(Lebewesen lebewesen, string neuerName)
+        {
+            lebewesen.Name = neuerName;
         }
     }
 }
