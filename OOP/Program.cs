@@ -32,17 +32,29 @@ namespace OOP
             //Console.WriteLine(lebewesen1.Geburtsdatum.Day);
             #endregion
 
-            Lebewesen lebewesen1;
+            //Lebewesen lebewesen1;
 
-            for (int i = 0; i < 1000; i++)
-            {
-                lebewesen1 = new Lebewesen($"Lebewesen Nr. {i}", "", new DateTime(), 0);
-            }
+            //for (int i = 0; i < 1000; i++)
+            //{
+            //    lebewesen1 = new Lebewesen($"Lebewesen Nr. {i}", "", new DateTime(), 0);
+            //}
 
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+            //GC.Collect();
+            //GC.WaitForPendingFinalizers();
 
-            Lebewesen.ZeigeAnzahlAllerLebewesen();
+            //Lebewesen.ZeigeAnzahlAllerLebewesen();
+
+            Lebewesen lebewesen = new Lebewesen("Bello", "Knochen", new DateTime(2020, 3, 15), 50);
+
+            Mensch mensch = new Mensch("Anna", "Nass", "Schnitzel", new DateTime(2001, 4, 12), 180);
+
+            Console.WriteLine(mensch.Vorname);
+            Console.WriteLine(mensch.Alter);
+
+            mensch.Wachse();
+
+            Console.WriteLine(lebewesen.ToString());
+            Console.WriteLine(mensch.ToString());
 
 
         }

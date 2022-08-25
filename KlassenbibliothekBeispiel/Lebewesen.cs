@@ -53,16 +53,16 @@
 
         //Es können mehrere Konstruktoren definiert werden, welche unterschiedliche Übergabeparameter haben (Überladung). Ein Konstruktor, der keine
         //Übergabeparameter hat, wird als Basiskonstruktor bezeichnet
-        public Lebewesen()
-        {
+        //public Lebewesen()
+        //{
 
-        }
+        //}
         #endregion
 
         #region Methoden
 
         //MEMBERMETHODEN sind Funktionen, welche jedes Objekt einer Klasse besitzt und speziell mit diesem Objekt interagiert
-        public void Wachse()
+        public virtual void Wachse()
         {
             this.Größe++;
         }
@@ -85,6 +85,12 @@
         public static void ZeigeAnzahlAllerLebewesen()
         {
             Console.WriteLine($"Es hat bis jetzt {Lebewesen.AnzahlAllerLebewesen} Lebewesen gegeben.");
+        }
+
+
+        public override string ToString()
+        {
+            return $"{this.Name} mag gerne {this.Lieblingsnahrung}.";
         }
 
     }
