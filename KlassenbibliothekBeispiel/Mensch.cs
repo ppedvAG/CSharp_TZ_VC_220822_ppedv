@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace KlassenbibliothekBeispiel
 {
     //Mensch erbt mittels des :-Zeichens von der Lebewesen-Klasse und übernimmt somit alle Eigenschaften und Methoden von dieser.
+    //Mensch implementiert Interfaces, welche dieser Klasse zusätzliche Eigenschaften verleihen
     public class Mensch : Lebewesen, IArbeitend, ICloneable
     {
         //Zusätzliche Mensch-eigene Eigenschaften
@@ -38,21 +39,33 @@ namespace KlassenbibliothekBeispiel
             Console.WriteLine($"{this.Vorname} konsumiert {this.Lieblingsnahrung}.");
         }
 
-        public int Gehalt { get; set; } = 3600;
-        public string Job { get; set; } = "Marketingchef";
+        //Durch IArbeit verlangte Eigenschaften
+        public int Gehalt { get; set; } = 3500;
+        public string Job { get; set; }
 
+        //Ducrh IArbeit verlangte Methode
         public void Auszahlung()
         {
-            Console.WriteLine($"{this.Name} hat für den Job als {this.Job} {this.Gehalt}€ erhalten.");
+            Console.WriteLine($"{this.Vorname} {this.Name} hat {this.Gehalt}€ für {this.Job} bekommen.");
         }
 
+        //Durch IClonable verlangte Methode (Bsp für .NET-eigenes Interface)
+        ///Diese Methode erlaubt die Erstellung einer Kopie dieses Objekts
         public object Clone()
         {
-            Mensch mensch = (Mensch)this.MemberwiseClone();
+            //Durch .MemberwiseClone() werden alle Wertetypen des Originalobjekts kopiert
+            Mensch neuerMensch = (Mensch)this.MemberwiseClone();
+            //Referenzen müssen manuell neu zugewiesen werden oder ebenfalls über IClonable verfügen und durch .Clone() kopiert werden
+            neuerMensch.Geburtsdatum = new DateTime(this.Geburtsdatum.Year, this.Geburtsdatum.Month, this.Geburtsdatum.Day);
+            return neuerMensch;
+        }
 
-            mensch.Geburtsdatum = new DateTime(this.Geburtsdatum.Year, this.Geburtsdatum.Month, this.Geburtsdatum.Day);
-
-            return mensch;
+        //Alternativ zu IClonable kann ein Kopierkonstruktor zur Dublizierung verwendet werden. Hier werden die Werte und Referenzen koiert und übertragen
+        public Mensch(Mensch alterMensch)
+        {
+            this.Vorname = alterMensch.Vorname;
+            this.Name = alterMensch.Name;
+            //...
         }
     }
 }
