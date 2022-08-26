@@ -75,44 +75,71 @@ namespace OOP
 
             #endregion
 
-            Lebewesen lebewesen;
+            #region Modul 09: Polymorphismus
+
+            ////Deklaration einer Bsp-Variablen
+            //Lebewesen lebewesen;
+            ////Instanziierung eines Objekts der abgeleiteten Klasse
+            //Mensch mensch = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6), 189);
+
+            ////Zuweisung des abgeleiteten Objekts zu Variable der Mutterklasse
+            //lebewesen = mensch;
+
+            ////Aufruf der unten stehenden Methode mit Übergabe eines Menschen in einem Lebewesen-Übergabeparameter
+            //ÄndereName(mensch, "Rainer");
+
+            ////Tests des Laufzeittyps (des beinhalteten Objekts)
+            //if (lebewesen.GetType() == typeof(Mensch))
+            //    Console.WriteLine("Lebewesen ist ein Mensch");
+
+            //if (lebewesen is Mensch)
+            //    Console.WriteLine("Lebewesen ist ein Mensch");
+
+            ////überschriebene Methoden werden trotzdem ausgeführt
+            //Console.WriteLine(lebewesen.ToString());
+
+            //if (lebewesen is Mensch)
+            //{
+            //    //Rückcast des abgeleiteten Objekts aus Mutterklassevariablen in abgeleitete Variable
+            //    Mensch mensch2 = (Mensch)lebewesen;
+            //    //Alternativer Cast
+            //    mensch2 = lebewesen as Mensch;
+            //}
+
+            ////Aufruf einer überschriebenen Methode durch eine Basisklassenvariable (Funktion des Laufzeittypen wird ausgeführt)
+            //Console.WriteLine(lebewesen.ToString());
+
+            ////Aufruf einer abstrakten Methode
+            //lebewesen.Essen();
+
+            #endregion
+
 
             Mensch mensch = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6), 189);
 
-            lebewesen = mensch;
+            IArbeitend arbeitendesObjekt = mensch;
 
-            Console.WriteLine(mensch.Vorname);
+            arbeitendesObjekt.Auszahlung();
 
-            lebewesen.Wachse();
+            Gehaltserhöhung(mensch);
 
-            ÄndereName(mensch, "Rainer");
-
-            Console.WriteLine(lebewesen.GetType());
-
-            if (lebewesen.GetType() == typeof(Mensch))
-            { 
-                mensch = (Mensch)lebewesen;
-                Console.WriteLine(mensch.Vorname);
-
-                Console.WriteLine(((Mensch)lebewesen).Vorname);
-            }
-
-            if(lebewesen is Mensch)
-            {
-                mensch = lebewesen as Mensch;
-                Console.WriteLine(mensch.Vorname);
-
-                Console.WriteLine((lebewesen as Mensch).Vorname);
-            }
-
-            Console.WriteLine(lebewesen.ToString());
-
-            lebewesen.Essen();
+            Mensch mensch2 = mensch.Clone() as Mensch;
         }
 
+        //Bsp-Methode für Übergabe eines Lebewesens (kann auch spezifische, abgeleitete Objekte, z.B. Mensch, empfangen)
         public static void ÄndereName(Lebewesen lebewesen, string neuerName)
         {
             lebewesen.Name = neuerName;
+        }
+
+        public static void Gehaltserhöhung(IArbeitend arbeitend)
+        {
+            arbeitend.Gehalt += 100;
+
+            if(arbeitend is Mensch)
+            {
+                (arbeitend as Mensch).Essen();
+            }
         }
     }
 }

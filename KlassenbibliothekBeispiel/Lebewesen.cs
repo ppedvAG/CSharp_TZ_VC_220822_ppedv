@@ -1,6 +1,7 @@
 ﻿namespace KlassenbibliothekBeispiel
 {
     //KLASSEN sind Vorlagen für Objekte. Sie bestimmen Eigenschaften und Funktionen dieser.
+    //ABSTRACT definiert eine Klasse als abstrakt. D.h. von dieser Klasse können keine Objekte mehr instanziiert werden, sie dient nur noch als Mutterklasse
     public abstract class Lebewesen //zur Verwendung vgl. OOP\Program.cs
     {
         #region Felder und Eigenschaften
@@ -106,6 +107,8 @@
 
         #endregion
 
+        //Abstrakte Methoden dürfen nur in abstrakten Klassen existieren und definieren nur
+        ///eine Signatur. Die erbenden Klassen werden gezwungen eine Implementierung vorzunehmen
         public abstract void Essen();
 
     }
