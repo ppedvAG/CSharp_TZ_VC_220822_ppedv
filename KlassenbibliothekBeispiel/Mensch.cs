@@ -17,6 +17,7 @@ namespace KlassenbibliothekBeispiel
         public Mensch(string vorname, string nachname, string lieblingsnahrung, DateTime geburtsdatum, int größe) : base(nachname, lieblingsnahrung, geburtsdatum, größe)
         {
             this.Vorname = vorname;
+        }
 
         //Mittels OVERRIDE können Methoden der Mutterklassen, welche mit VIRTUAL markiert sind, überschrieben werden. Bei Aufruf wird die neue Methode ausgeführt.
         //Mittels BASE kann ein Rückbezug zur nächst-höheren Klasse hergestellt werden.
@@ -29,6 +30,11 @@ namespace KlassenbibliothekBeispiel
         public override void Wachse()
         {
             this.Größe += 10;
+        }
+
+        public override void Essen()
+        {
+            Console.WriteLine($"{this.Vorname} isst {this.Lieblingsnahrung}.");
         }
     }
 }

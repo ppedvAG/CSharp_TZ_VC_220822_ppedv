@@ -87,7 +87,27 @@ namespace OOP
 
             ÄndereName(mensch, "Rainer");
 
+            Console.WriteLine(lebewesen.GetType());
 
+            if (lebewesen.GetType() == typeof(Mensch))
+            { 
+                mensch = (Mensch)lebewesen;
+                Console.WriteLine(mensch.Vorname);
+
+                Console.WriteLine(((Mensch)lebewesen).Vorname);
+            }
+
+            if(lebewesen is Mensch)
+            {
+                mensch = lebewesen as Mensch;
+                Console.WriteLine(mensch.Vorname);
+
+                Console.WriteLine((lebewesen as Mensch).Vorname);
+            }
+
+            Console.WriteLine(lebewesen.ToString());
+
+            lebewesen.Essen();
         }
 
         public static void ÄndereName(Lebewesen lebewesen, string neuerName)

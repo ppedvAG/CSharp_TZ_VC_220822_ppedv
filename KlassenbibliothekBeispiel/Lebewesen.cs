@@ -1,7 +1,7 @@
 ﻿namespace KlassenbibliothekBeispiel
 {
     //KLASSEN sind Vorlagen für Objekte. Sie bestimmen Eigenschaften und Funktionen dieser.
-    public class Lebewesen //zur Verwendung vgl. OOP\Program.cs
+    public abstract class Lebewesen //zur Verwendung vgl. OOP\Program.cs
     {
         #region Felder und Eigenschaften
         //FELDER (Membervariablen) sind die Variablen einzelner Objekte, welche die Zustände dieser Objekte definieren
@@ -74,10 +74,10 @@
             return $"{this.Name} ist {this.Alter} Jahre alt und mag gerne {this.Lieblingsnahrung}.";
         }
 
-        public Lebewesen ProduziereNachwuchs(string kindname)
-        {
-            return new Lebewesen(kindname, "Muttermilch", DateTime.Now, 30);
-        }
+        //public Lebewesen ProduziereNachwuchs(string kindname)
+        //{
+        //    return new Lebewesen(kindname, "Muttermilch", DateTime.Now, 30);
+        //}
 
         #endregion
 
@@ -106,7 +106,7 @@
 
         #endregion
 
-
+        public abstract void Essen();
 
     }
 }
