@@ -114,24 +114,64 @@ namespace OOP
 
             #endregion
 
-
             #region Modul 10: Interfaces
 
             ////Instanziierung eines Beispiel-Objekts
-            //Mensch mensch = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6), 198);
+            //Mensch mensch3 = new Mensch("Anna", "Meier", "Lasagne", new DateTime(1984, 5, 6), 198);
             ////Betrachtung des Objekts als Objekt des Interfaces
-            //IArbeitend arbeitendesObjekt = mensch;
+            //IArbeitend arbeitendesObjekt = mensch3;
             ////Zugriff auf Interface-Methode
             //arbeitendesObjekt.Auszahlung();
             ////Übergabe an Methode, welche ein Objekt des Interfaces erwartet
             //Gehaltserhöhung(arbeitendesObjekt);
             ////Übergabe benötigt keinen Cast aus implementierender Klasse
-            //Gehaltserhöhung(mensch);
+            //Gehaltserhöhung(mensch3);
 
             ////Aufruf der Clone()-Funktion des IClonable-Interfaces
             //Mensch kopierterMensch = (Mensch)mensch.Clone();
-            
+
             #endregion
+
+
+            System.Collections.Generic.List<string> Städteliste = new List<string>();
+
+            Städteliste.Add("Hamburg");
+            Städteliste.Add("Berlin");
+            Städteliste.Add("München");
+            Städteliste.Add("Köln");
+            Städteliste.Add("Düsseldorf");
+
+            Console.WriteLine(Städteliste.Count);
+
+            Console.WriteLine(Städteliste[3]);
+
+            Städteliste[3] = "Dresden";
+            Console.WriteLine(Städteliste[3]);
+
+            foreach (var item in Städteliste)
+            {
+                Console.WriteLine(item);
+            }
+
+            Städteliste.Remove("Berlin");
+
+            Städteliste.Insert(2, "Berlin");
+
+            Console.WriteLine();
+
+            foreach (var item in Städteliste)
+            {
+                Console.WriteLine(item);
+            }
+
+            Dictionary<string, int> Dict = new Dictionary<string, int>();
+
+            Dict.Add("Hallo", 123);
+            Dict.Add("Moin", -123);
+            Dict.Add("Ahoj", 2);
+            Dict.Add("Ciao", -2);
+
+            Console.WriteLine(Dict["Moin"]);
         }
 
         #region Modul 09: Polymorphismus
