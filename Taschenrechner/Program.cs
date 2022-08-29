@@ -89,7 +89,7 @@
                     symbol = "/";
                     return z1 / z2;
                 default:
-                    return double.NaN;
+                    throw new InvalidOperationException();
             }
         }
     }
