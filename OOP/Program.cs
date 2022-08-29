@@ -131,47 +131,6 @@ namespace OOP
             //Mensch kopierterMensch = (Mensch)mensch.Clone();
 
             #endregion
-
-
-            System.Collections.Generic.List<string> Städteliste = new List<string>();
-
-            Städteliste.Add("Hamburg");
-            Städteliste.Add("Berlin");
-            Städteliste.Add("München");
-            Städteliste.Add("Köln");
-            Städteliste.Add("Düsseldorf");
-
-            Console.WriteLine(Städteliste.Count);
-
-            Console.WriteLine(Städteliste[3]);
-
-            Städteliste[3] = "Dresden";
-            Console.WriteLine(Städteliste[3]);
-
-            foreach (var item in Städteliste)
-            {
-                Console.WriteLine(item);
-            }
-
-            Städteliste.Remove("Berlin");
-
-            Städteliste.Insert(2, "Berlin");
-
-            Console.WriteLine();
-
-            foreach (var item in Städteliste)
-            {
-                Console.WriteLine(item);
-            }
-
-            Dictionary<string, int> Dict = new Dictionary<string, int>();
-
-            Dict.Add("Hallo", 123);
-            Dict.Add("Moin", -123);
-            Dict.Add("Ahoj", 2);
-            Dict.Add("Ciao", -2);
-
-            Console.WriteLine(Dict["Moin"]);
         }
 
         #region Modul 09: Polymorphismus
