@@ -36,7 +36,8 @@ namespace WinFormsBsp
 
         private void schließenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if(MessageBox.Show("Möchstest du das Programm wirklich beenden?", "Programm schließen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
 
             //Application.Exit();
         }
