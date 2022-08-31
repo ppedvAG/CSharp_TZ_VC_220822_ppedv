@@ -9,124 +9,151 @@ namespace Dateizugriffe
             InitializeComponent();
         }
 
+        //Methode zum Speichern einer Textdatei
         private void Btn_Save_Click(object sender, EventArgs e)
         {
+            //Instanzierung eines Save-Dialogfensters
             SaveFileDialog saveDialog = new SaveFileDialog();
-
+            //vorgeschlagener Standartdateiname
             saveDialog.FileName = "datei.txt";
+            //Standart-Ordner (kann z.B. ein Pfad als String sein oder (wie hier) ein Windows-'SpecialFolder')
             saveDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            //Bsp-Übergabe des Windows-Arbeitsplatzes als GUID
+            saveDialog.InitialDirectory = "::{20d04fe0-3aea-1069-a2d8-08002b30309d}";
+            //Mögliche Dateiformate
             saveDialog.Filter = "Textdatei|*.txt|Stringdatei|*.string|Alle Dateien|*.*";
 
+            //Öffnen des Dialogfensters und Überprüfung der Benutzerwahl
             if (saveDialog.ShowDialog() == DialogResult.OK)
             {
-                StreamWriter sw = null;
+                //Deklarierung und Null-Initialisierung einer Streamreader-Variablen
+                StreamWriter writer = null;
 
                 try
                 {
-                    sw = new StreamWriter(saveDialog.FileName);
+                    //Instanziierung des StreamWriters mit Übergabe des Dateipfads
+                    writer = new StreamWriter(saveDialog.FileName);
+                    //Schreiben des Strings in die Textdatei
+                    writer.WriteLine(Tbx_Input.Text);
+                    //Schreiben einer weiteren Zeile in die Tesxtdatei
+                    writer.WriteLine("Ende des Texts");
 
-                    sw.WriteLine(Tbx_Input.Text);
-
-                    sw.Write("ENDE DES TEXTS");
-
+                    //Erfolgsmeldung für User
                     MessageBox.Show("Speichern erfolgreich");
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Speichern fehlgeschlagen");
+                    //Misserfolgseldung für User bei Aufkommen einer Exception
+                    MessageBox.Show("Speichern fehlgeschlagen " + ex.Message);
                 }
                 finally
                 {
-                    if (sw != null)
-                        sw.Close();
+                    //Schließen der Datei innerhalb des Finally-Blocks, damit andere Programme auf die Datei zugreifen können (? = Nullprüfung des vorhergehenden Bezeichners)
+                    //? ist Null-Prüfung der writer-Vatiablen
+                    writer?.Close();
                 }
+
             }
         }
 
+        //Methode zum Laden einer Textdatei (vgl. auch SaveText())
         private void Btn_Load_Click(object sender, EventArgs e)
         {
-            StreamReader sr = null;
-
             try
             {
-                using (sr = new StreamReader("textdatei.txt"))
+                //Verwendung des USING-Blocks (erlaubt durch die Verwendung des IDisposible-Interfaces in der StreamReader-Klasse.
+                //Hierdurch wird durch verlassen des Using-Blocks automatisch der Dateizugriff beenden (statt reader.Close())
+                using (StreamReader reader = new StreamReader(@"datei.txt"))
                 {
-                    string geladenerText = sr.ReadToEnd();
+                    //Leeren der TextBox
+                    Tbx_Input.Clear();
 
-                    Tbx_Input.Text = geladenerText;
+                    //Schleife, welche über die geöffnete Datei läuft
+                    while (!reader.EndOfStream)
+                    {
+                        //Hinzufügen der aktuell betrachteten Zeile in der Datei zu dem Ausgabestring
+                        Tbx_Input.Text += reader.ReadLine() + Environment.NewLine;
+                    }
                 }
 
                 MessageBox.Show("Laden erfolgreich");
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Laden fehlgeschlagen");
+                MessageBox.Show("Laden fehlgeschlagen " + ex.Message);
             }
         }
 
-        private void Btn_SaveP_Click(object sender, EventArgs e)
-        {
-            List<Person> personenListe = new List<Person>();
-            personenListe.Add(new Person() { Name = "Rainer Zufall", Alter = 34 });
-            personenListe.Add(new Arbeitnehmer() { Name = "Anna Nass", Alter = 65, Abteilung = "Marketing" });
-
-            JsonSerializerSettings settings = new JsonSerializerSettings();
-            settings.TypeNameHandling = TypeNameHandling.Objects;
-
-            StreamWriter sw;
-
-            try
-            {
-                using(sw = new StreamWriter("Personen.txt"))
-                {
-                    for (int i = 0; i < personenListe.Count; i++)
-                    {
-                        string personAlsString = JsonConvert.SerializeObject(personenListe[i], settings);
-
-                        sw.WriteLine(personAlsString);
-                    }
-
-                    MessageBox.Show("Speichern von Personen erfolgreich");
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Speichern von Personen fehlgeschlagen");
-            }
-        }
-
+        //Methode zum Laden einer 'Personen'-Datei (vgl. auch Btn_Load_Click)
         private void Btn_LoadP_Click(object sender, EventArgs e)
         {
-            List<Person> personenListe = new List<Person>();
+            StreamReader reader = null;
+
+            //Erstellen eines JsonSerialiserSetting-Objekt zur Spezifizierung der Serialisierung
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            //TypeNameHandling markiert die Json-Zeilen mit dem entsprechenden Objekt-Typ (z.B. Arbeitnehmer)
+            settings.TypeNameHandling = TypeNameHandling.Objects;
+
+            try
+            {
+                reader = new StreamReader("personen.txt");
+
+                while (!reader.EndOfStream)
+                {
+                    //Lesen einer Textzeile aus der Datei und Umwandlung der Textzeile in eine Person (Beachte die Übergabe des Settings-Objekts)
+                    Person person = JsonConvert.DeserializeObject<Person>(reader.ReadLine(), settings);
+                    //Ausgabe der Person
+                    MessageBox.Show(person.GetType().ToString() + ": " + person.Name);
+                }
+
+                MessageBox.Show("Laden erfolgreich");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Laden fehlgeschlagen " + ex.Message);
+            }
+            finally
+            {
+                reader?.Close();
+            }
+        }
+
+        //Methode zum Abspeichern von Personen-Objekten (vgl. auch Btn_LoadP_Click)
+        private void Btn_SaveP_Click(object sender, EventArgs e)
+        {
+            //Bsp-Personen zum Abspeichern
+            List<Person> liste = new List<Person>();
+            liste.Add(new Person() { Name = "Anna", Alter = 45 });
+            liste.Add(new Arbeitnehmer() { Name = "Hugo", Alter = 23, Abteilung = "Marketing" });
+
+            StreamWriter writer = null;
 
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.TypeNameHandling = TypeNameHandling.Objects;
 
-            StreamReader sr;
-
             try
             {
-                using (sr = new StreamReader("Personen.txt"))
+                writer = new StreamWriter("personen.txt");
+
+                for (int i = 0; i < liste.Count; i++)
                 {
-                    while(!sr.EndOfStream)
-                    {
-                        Person person = JsonConvert.DeserializeObject<Person>(sr.ReadLine(), settings);
-
-                        personenListe.Add(person);
-                    }
-
-                    MessageBox.Show("Laden von Personen erfolgreich");
-
-                    foreach (var item in personenListe)
-                    {
-                        MessageBox.Show(item.GetType().ToString() + ": " + item.Name);
-                    }
+                    //Umwandlung einer Person in einen String
+                    string jsonString = JsonConvert.SerializeObject(liste[i], settings);
+                    //Speichern des Strings
+                    writer.WriteLine(jsonString);
                 }
+
+                MessageBox.Show("Speichern erfolgreich");
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Laden von Personen fehlgeschlagen");
+                MessageBox.Show("Speichern fehlgeschlagen " + ex.Message);
             }
+            finally
+            {
+                writer?.Close();
+            }
+
         }
     }
 

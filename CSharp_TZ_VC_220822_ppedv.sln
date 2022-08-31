@@ -37,9 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M13_Delegates", "Delegates\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M14_WinFormsBsp", "WinFormsBsp\M14_WinFormsBsp.csproj", "{5A728A31-6F1B-479C-A7F1-639BED237DD1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L14_FahrzeugGui", "L14_FahrzeugGui\L14_FahrzeugGui.csproj", "{27E5D14D-4250-4174-8D9D-2BEEF08387E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L14f_FahrzeugGui", "L14_FahrzeugGui\L14f_FahrzeugGui.csproj", "{27E5D14D-4250-4174-8D9D-2BEEF08387E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dateizugriffe", "Dateizugriffe\Dateizugriffe.csproj", "{75EE37F5-C24D-4696-8F96-5B15D79D0D09}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M15_Dateizugriffe", "Dateizugriffe\M15_Dateizugriffe.csproj", "{75EE37F5-C24D-4696-8F96-5B15D79D0D09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
