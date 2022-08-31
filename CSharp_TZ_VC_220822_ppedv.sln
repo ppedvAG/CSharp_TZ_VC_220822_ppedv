@@ -33,11 +33,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M12_UnitTest", "UnitTest\M1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L12_ExceptionHandling", "L12_ExceptionHandling\L12_ExceptionHandling.csproj", "{F82E4500-2B26-4DEE-9DB2-C0C139F5B9AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M13_Delegates", "Delegates\M13_Delegates.csproj", "{D2D74B65-28C1-462F-A7D1-766C46DB83DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M13_Delegates", "Delegates\M13_Delegates.csproj", "{D2D74B65-28C1-462F-A7D1-766C46DB83DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M14_WinFormsBsp", "WinFormsBsp\M14_WinFormsBsp.csproj", "{5A728A31-6F1B-479C-A7F1-639BED237DD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "M14_WinFormsBsp", "WinFormsBsp\M14_WinFormsBsp.csproj", "{5A728A31-6F1B-479C-A7F1-639BED237DD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L14_FahrzeugGui", "L14_FahrzeugGui\L14_FahrzeugGui.csproj", "{27E5D14D-4250-4174-8D9D-2BEEF08387E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L14_FahrzeugGui", "L14_FahrzeugGui\L14_FahrzeugGui.csproj", "{27E5D14D-4250-4174-8D9D-2BEEF08387E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dateizugriffe", "Dateizugriffe\Dateizugriffe.csproj", "{75EE37F5-C24D-4696-8F96-5B15D79D0D09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{27E5D14D-4250-4174-8D9D-2BEEF08387E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27E5D14D-4250-4174-8D9D-2BEEF08387E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27E5D14D-4250-4174-8D9D-2BEEF08387E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75EE37F5-C24D-4696-8F96-5B15D79D0D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75EE37F5-C24D-4696-8F96-5B15D79D0D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75EE37F5-C24D-4696-8F96-5B15D79D0D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75EE37F5-C24D-4696-8F96-5B15D79D0D09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
