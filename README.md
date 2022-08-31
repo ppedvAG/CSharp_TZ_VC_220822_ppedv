@@ -15,7 +15,7 @@ Strg+K/Strg+U   -> Markierte Zeilen einkommentieren
 
 Strg+K/Strg+D   -> Formatiere aktuelle Datei
 
-Alt+Enter       -> Öffne Hilfsmenü für markierten Bezeichner(Glügbirne/Schraubenzieher)
+Alt+Enter       -> Öffne Hilfsmenü für markierten Bezeichner(Glühbirne/Schraubenzieher)
 
 Alt+Mausklick   -> freie Markierung im Rechteck (Cursor in mehreren Zeilen)
 
